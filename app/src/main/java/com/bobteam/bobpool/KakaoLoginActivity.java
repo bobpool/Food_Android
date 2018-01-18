@@ -2,11 +2,7 @@ package com.bobteam.bobpool;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -23,8 +19,6 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
-
-import java.security.MessageDigest;
 
 /**
  * Created by Osy on 2018-01-18.
@@ -63,7 +57,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
             // 세션을 가지고 있거나, 갱신할 수 있는 상태로 명시적 오픈을 위한 로그인 버튼을 보여주지 않는다.
             loginButton.setVisibility(View.GONE);
         }
-        getAppKeyHash();
+
     }
 
     @Override
@@ -101,7 +95,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
 
         //아이디값 입력
         result.setEmail(String.valueOf(userId));
-        ( (CommonData) getApplication()).setUserVO(result);
+        ( (GlobalApplication) getApplication()).setUserVO(result);
         checkUserTask.cancel(true);
 
         if (result.isMember()) {
@@ -115,11 +109,15 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
         @Override
         public void onSessionOpened() {
             // 프로그레스바 종료
+
+            Log.e(TAG, "onSessionOpened: ????????????" );
             requestMe();
         }
 
         @Override
         public void onSessionOpenFailed(final KakaoException exception) {
+            exception.printStackTrace();
+            Log.e(TAG, "onSessionOpenFailed: !!!!!!!!!!!!!!!!!" );
             // 프로그레스바 종료
             // 세션 오픈을 못했으니 다시 로그인 버튼 노출.
             loginButton.setVisibility(View.VISIBLE);
@@ -127,7 +125,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
     }
 
     /* 자동가입앱인 경우는 가입안된 유저가 나오는 것은 에러 상황.*/
-    protected void showSignup() {
+    protected void showSignUp() {
         Log.d(TAG, "not registered user");
         redirectLoginActivity();
     }
@@ -165,14 +163,17 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
 
             @Override
             public void onSuccess(UserProfile userProfile) {
-                Log.d("유저프로필","성공");
-                Log.d(TAG, "UserProfile : " + userProfile);
+                Log.e("유저프로필","성공");
+                Log.e(TAG, "UserProfile : " + userProfile);
                 userProfile.saveUserToCache();
                 userId = userProfile.getId();
 
-                CommonData.setUserProfile(userProfile);
+                GlobalApplication.setUserProfile(userProfile);
 
-                requestUserInfo(String.valueOf(userId));
+                //Task서버설정후 실행하장
+                //requestUserInfo(String.valueOf(userId));
+
+                redirectMainActivity();
             }
 
             @Override
@@ -183,7 +184,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
 
             @Override
             public void onNotSignedUp() {
-                showSignup();
+                showSignUp();
             }
 
             @Override
@@ -201,24 +202,5 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
                 }
             }
         });
-    }
-    // 키해쉬 값 가져오기
-    private void getAppKeyHash ( ) {
-        try{
-            PackageInfo info = getPackageManager ( ).getPackageInfo ( getPackageName ( ) , PackageManager.GET_SIGNATURES );
-            for ( Signature signature : info.signatures ) {
-                System.out.println("Hash");
-                MessageDigest md;
-                md = MessageDigest.getInstance ( "SHA" );
-                md.update ( signature.toByteArray ( ) );
-                String something = new String ( Base64.encode ( md.digest ( ) , 0 ) );
-                Log.d ( "Hash key" , something );
-            }
-        }
-        catch ( Exception e )
-        {
-            // TODO Auto-generated catch block
-            Log.e ( "name not found" , e.toString ( ) );
-        }
     }
 }

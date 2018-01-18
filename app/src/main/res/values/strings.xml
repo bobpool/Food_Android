@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BoBPool</string>
+    <string name="kakao_app_key">3b813cdd62c2a695607c85e3fee17e41</string>
+    <string name="client_secret">XQ31bkWcyATWc9UPAlqUvzC6W1B4BjlY</string>
 </resources>

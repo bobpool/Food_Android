@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.bobteam.bobpool.CommonData;
+import com.bobteam.bobpool.GlobalApplication;
 import com.bobteam.bobpool.vo.UserVO;
 
 import org.json.JSONArray;
@@ -51,7 +51,7 @@ public class CheckUserTask extends AsyncTask < String , Integer , UserVO>{
         JSONArray responseJSON = null;
 
         try{
-            String urlStr = CommonData.getCheckUserIdAddress(userID);
+            String urlStr = GlobalApplication.getCheckUserIdAddress(userID);
 
             url = new URL ( urlStr );
             // GET 방식
