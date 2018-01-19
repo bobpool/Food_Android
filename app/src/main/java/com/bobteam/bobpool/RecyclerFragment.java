@@ -38,6 +38,7 @@ public class RecyclerFragment extends Fragment {
 
         MyAdapter myAdapter = new MyAdapter(providers);
         recyclerView.setAdapter(myAdapter);
+
     }
 
     public void testProvider(){
