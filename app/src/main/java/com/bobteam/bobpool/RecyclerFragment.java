@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bobteam.bobpool.list.ListProvider;
+import com.bobteam.bobpool.list.MyListAdapter;
+
 import java.util.ArrayList;
 
 /**
@@ -36,8 +39,8 @@ public class RecyclerFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        MyAdapter myAdapter = new MyAdapter(providers);
-        recyclerView.setAdapter(myAdapter);
+        MyListAdapter myListAdapter = new MyListAdapter(providers);
+        recyclerView.setAdapter(myListAdapter);
 
     }
 

@@ -95,7 +95,7 @@ public class GlobalApplication extends Application {
         this.userVO = userVO;
     }
 
-    public static String getCheckUserIdAddress(String userID){
+    public static String getServerAddress(){
         //userID를 이용하여 url 리턴하도록 바꿔야함.
         return ADDRESS ;
     }
@@ -107,7 +107,6 @@ public class GlobalApplication extends Application {
     public static void setUserProfile(UserProfile userProfile) {
         GlobalApplication.userProfile = userProfile;
     }
-
 
     @Override
     public void onTerminate() {

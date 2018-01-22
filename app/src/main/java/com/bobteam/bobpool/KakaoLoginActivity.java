@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bobteam.bobpool.task.CheckUserTask;
 import com.bobteam.bobpool.task.TaskResultListener;
 import com.bobteam.bobpool.vo.UserVO;
 import com.kakao.auth.ErrorCode;
@@ -29,7 +28,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
     private static final String TAG = KakaoLoginActivity.class.toString();
 
     private LoginButton loginButton;
-    Session session;
+    private Session session;
     private final SessionCallback mySessionCallback = new SessionCallback();
     private CheckUserTask checkUserTask;
     private Long userId = 0L;
@@ -43,7 +42,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kakao_login);
 
-        loginButton = (LoginButton) findViewById(R.id.com_kakao_login);
+        loginButton = findViewById(R.id.com_kakao_login);
 
         // 세션 콜백 추가
         session = Session.getCurrentSession();
