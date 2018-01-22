@@ -17,21 +17,18 @@ import java.util.ArrayList;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.MyViewHolder> {
     private ArrayList<ListProvider> listProvider;
+    private View.OnClickListener itemClickListener;
 
-    public MyListAdapter(ArrayList<ListProvider> provider){
+    public MyListAdapter(ArrayList<ListProvider> provider , View.OnClickListener itemClickListener){
         this.listProvider = provider;
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from( parent.getContext() );
         View view = inflater.inflate(R.layout.recycler_item, parent, false);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        view.setOnClickListener(itemClickListener);
 
         return new MyViewHolder(view);
     }

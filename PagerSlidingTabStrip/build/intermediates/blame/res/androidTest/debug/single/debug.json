@@ -1,9 +1,5 @@
 [
     {
-        "merged": "E:\\smart_healing_tour\\JEJUSM\\PagerSlidingTabStrip\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_background_tab.xml.flat",
-        "source": "E:\\smart_healing_tour\\JEJUSM\\PagerSlidingTabStrip\\build\\intermediates\\bundles\\debug\\res\\drawable\\background_tab.xml"
-    },
-    {
         "merged": "D:\\AndroidProject\\bobpool\\PagerSlidingTabStrip\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable_background_tab.xml.flat",
         "source": "D:\\AndroidProject\\bobpool\\PagerSlidingTabStrip\\build\\intermediates\\bundles\\debug\\res\\drawable\\background_tab.xml"
     }

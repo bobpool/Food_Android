@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bobteam.bobpool.task.CheckUserTask;
 import com.bobteam.bobpool.task.TaskResultListener;
 import com.bobteam.bobpool.vo.UserVO;
 import com.kakao.auth.ErrorCode;
@@ -24,7 +25,6 @@ import com.kakao.util.exception.KakaoException;
  */
 
 public class KakaoLoginActivity extends Activity implements TaskResultListener<UserVO>{
-
     private static final String TAG = KakaoLoginActivity.class.toString();
 
     private LoginButton loginButton;
