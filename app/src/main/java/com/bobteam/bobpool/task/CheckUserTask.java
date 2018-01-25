@@ -44,7 +44,7 @@ public class CheckUserTask extends AsyncTask < String , Integer , UserVO>{
     protected UserVO doInBackground ( String ... params ){
         if(isCancelled ( ))
             return null;
-
+System.out.println("for test");
         URL url;
         String userID = params [ 0 ];
         String response;
