@@ -1,4 +1,4 @@
-package com.bobteam.bobpool;
+package com.bobteam.bobpool.list;
 
 /**
  * Created by Osy on 2018-01-14.

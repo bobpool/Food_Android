@@ -25,11 +25,10 @@ import com.kakao.util.exception.KakaoException;
  */
 
 public class KakaoLoginActivity extends Activity implements TaskResultListener<UserVO>{
-
     private static final String TAG = KakaoLoginActivity.class.toString();
 
     private LoginButton loginButton;
-    Session session;
+    private Session session;
     private final SessionCallback mySessionCallback = new SessionCallback();
     private CheckUserTask checkUserTask;
     private Long userId = 0L;
@@ -43,7 +42,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kakao_login);
 
-        loginButton = (LoginButton) findViewById(R.id.com_kakao_login);
+        loginButton = findViewById(R.id.com_kakao_login);
 
         // 세션 콜백 추가
         session = Session.getCurrentSession();

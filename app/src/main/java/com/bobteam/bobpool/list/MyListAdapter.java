@@ -1,4 +1,4 @@
-package com.bobteam.bobpool;
+package com.bobteam.bobpool.list;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,23 +7,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bobteam.bobpool.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Osy on 2018-01-14.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.MyViewHolder> {
     private ArrayList<ListProvider> listProvider;
+    private View.OnClickListener itemClickListener;
 
-    public MyAdapter(ArrayList<ListProvider> provider){
+    public MyListAdapter(ArrayList<ListProvider> provider , View.OnClickListener itemClickListener){
         this.listProvider = provider;
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from( parent.getContext() );
         View view = inflater.inflate(R.layout.recycler_item, parent, false);
+        view.setOnClickListener(itemClickListener);
 
         return new MyViewHolder(view);
     }

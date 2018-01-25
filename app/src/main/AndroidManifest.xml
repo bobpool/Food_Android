@@ -29,6 +29,7 @@
 
         <activity android:name=".MainActivity"/>
         <activity android:name=".UserSettingActivity"/>
+        <activity android:name=".introduce.IntroduceActivity"/>
     </application>
 
 </manifest>

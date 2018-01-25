@@ -1,10 +1,11 @@
 package com.bobteam.bobpool.vo;
 
+import java.io.Serializable;
+
 /**
  * Created by Osy on 2018-01-14.
  */
-
-public class RestaurantVO {
+public class RestaurantVO implements Serializable{
     private String name;
     private String address;
     private String telNum;

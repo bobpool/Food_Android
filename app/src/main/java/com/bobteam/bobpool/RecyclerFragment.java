@@ -1,5 +1,6 @@
 package com.bobteam.bobpool;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bobteam.bobpool.introduce.IntroduceActivity;
+import com.bobteam.bobpool.list.ListProvider;
+import com.bobteam.bobpool.list.MyListAdapter;
+import com.bobteam.bobpool.vo.RestaurantVO;
+
 import java.util.ArrayList;
 
 /**
@@ -17,6 +23,7 @@ import java.util.ArrayList;
 
 public class RecyclerFragment extends Fragment {
     private ArrayList<ListProvider> providers;
+
 
     @Nullable
     @Override
@@ -36,9 +43,8 @@ public class RecyclerFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        MyAdapter myAdapter = new MyAdapter(providers);
-        recyclerView.setAdapter(myAdapter);
-
+        MyListAdapter myListAdapter = new MyListAdapter(providers, itemClickListener);
+        recyclerView.setAdapter(myListAdapter);
     }
 
     public void testProvider(){
@@ -56,4 +62,25 @@ public class RecyclerFragment extends Fragment {
         providers.add(new ListProvider().setName("김가네").setAddress("제대 정문 사라진 곳"));
         providers.add(new ListProvider().setName("봄봄").setAddress("제대 정문 커피 파는 곳"));
     }
+
+    private View.OnClickListener itemClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), IntroduceActivity.class);
+            intent.putExtra("data", testVO() );
+            //나중에 데이터 얹어서 추가로 보낼것.
+
+            startActivity(intent);
+        }
+    };
+
+    private RestaurantVO testVO(){
+        RestaurantVO vo = new RestaurantVO();
+        vo.setName("우리집");
+        vo.setAddress("우리집");
+        vo.setTelNum("010-1010-1010");
+
+        return vo;
+    }
+
 }
