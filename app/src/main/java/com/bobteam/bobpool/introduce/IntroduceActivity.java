@@ -1,21 +1,16 @@
 package com.bobteam.bobpool.introduce;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.bobteam.bobpool.R;
-import com.bobteam.bobpool.task.BaseJsonRead;
-import com.bobteam.bobpool.task.BaseTask;
-import com.bobteam.bobpool.task.TaskManager;
-import com.bobteam.bobpool.task.TestParsing;
-import com.bobteam.bobpool.task.TestUrlSetting;
 import com.bobteam.bobpool.vo.RestaurantVO;
-import com.bobteam.bobpool.vo.UserVO;
+import com.gigamole.navigationtabstrip.NavigationTabStrip;
 
 /**
  * Created by Osy on 2018-01-22.
@@ -43,20 +38,12 @@ public class IntroduceActivity extends AppCompatActivity{
         ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setAdapter( new ViewPagerAdapter( getSupportFragmentManager(), tabTitles) );
 
-        PagerSlidingTabStrip tab = findViewById(R.id.tabs);
+        NavigationTabStrip tab = findViewById(R.id.tabs);
+        tab.setTitles("정보", "메뉴", "리뷰");
+        tab.setStripColor(Color.GRAY);
+        tab.setActiveColor(Color.BLACK);
+        tab.setStripWeight(8);
+
         tab.setViewPager(viewPager);
-    }
-
-
-    private void taskStart(){
-        BaseTask<UserVO> task = new BaseTask<>();
-
-        TaskManager<UserVO> manager = new TaskManager<>();
-            manager.setUrlSetting( new TestUrlSetting());
-            manager.setJsonRead( new BaseJsonRead());
-            manager.setJsonParsing( new TestParsing());
-
-        task.setManager(manager);
-        task.execute();
     }
 }

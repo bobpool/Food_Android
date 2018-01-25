@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bobteam.bobpool.task.CheckUserTask;
+import com.bobteam.bobpool.main_list.MainActivity;
 import com.bobteam.bobpool.task.TaskResultListener;
 import com.bobteam.bobpool.vo.UserVO;
 import com.kakao.auth.ErrorCode;
@@ -30,7 +30,6 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
     private LoginButton loginButton;
     private Session session;
     private final SessionCallback mySessionCallback = new SessionCallback();
-    private CheckUserTask checkUserTask;
     private Long userId = 0L;
 
     private static final int NOT_USER = 0;
@@ -95,7 +94,6 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
         //아이디값 입력
         result.setEmail(String.valueOf(userId));
         ( (GlobalApplication) getApplication()).setUserVO(result);
-        checkUserTask.cancel(true);
 
         if (result.isMember()) {
             redirectMainActivity();
@@ -152,8 +150,7 @@ public class KakaoLoginActivity extends Activity implements TaskResultListener<U
     }
 
     private void requestUserInfo(String userID) {
-        checkUserTask = new CheckUserTask(this);
-        checkUserTask.execute(userID);
+
     }
 
     /* 사용자의 상태를 알아 보기 위해 me API 호출을 한다. */

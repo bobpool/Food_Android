@@ -27,7 +27,7 @@
             android:name="com.kakao.sdk.ClientSecret"
             android:value="@string/client_secret"/>
 
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".main_list.MainActivity"/>
         <activity android:name=".UserSettingActivity"/>
         <activity android:name=".introduce.IntroduceActivity"/>
     </application>

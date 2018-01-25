@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    //sdk버전26으로 하니까  getFont()메서드 없다구 에러남
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.bobteam.bobpool"
         minSdkVersion 19
@@ -38,9 +40,11 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:support-v4:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:recyclerview-v7:27.0.2'
-    implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
+//    implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    implementation 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
 
     // 카카오 로그인 sdk를 사용하기 위해 필요.
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION

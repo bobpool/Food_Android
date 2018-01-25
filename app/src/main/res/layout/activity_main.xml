@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.bobteam.bobpool.MainActivity">
+    tools:context="com.bobteam.bobpool.main_list.MainActivity">
 
     <TextView
         android:id="@+id/top"
