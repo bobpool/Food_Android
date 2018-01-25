@@ -14,7 +14,7 @@ import org.json.JSONObject;
  * Created by Osy on 2018-01-23.
  */
 
-public class SearchRestaurantTask extends BaseTask<RestaurantVO> {
+public class SearchRestaurantTask extends TestTask<RestaurantVO> {
     SearchRestaurantTask(Context context) {
         super(context);
     }

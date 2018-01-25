@@ -1,9 +1,8 @@
 package com.bobteam.bobpool.task;
 
-import android.content.Context;
+
 import android.util.Log;
 
-import com.bobteam.bobpool.GlobalApplication;
 import com.bobteam.bobpool.vo.UserVO;
 
 import org.json.JSONArray;
@@ -13,27 +12,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by Osy on 2018-01-19.
+ * Created by Osy on 2018-01-24.
  */
 
-
-public class CheckUserTask extends TestTask<UserVO> {
-    public CheckUserTask( Context context ){
-        super(context);
-    }
+public class TestParsing implements JsonParsing<UserVO> {
 
     @Override
-    protected String urlSetting(String... params) {
-        String userID = params[0];
-
-        String urlStr = GlobalApplication.getServerAddress();
-        urlStr = urlStr + "&userID=" + userID;
-
-        return urlStr;
-    }
-
-    @Override
-    protected UserVO dataParse(JSONArray jsonArray ){
+    public UserVO parse(JSONArray jsonArray) {
         if ( jsonArray == null )
             return null;
 

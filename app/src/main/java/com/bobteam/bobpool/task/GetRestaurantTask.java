@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Created by Osy on 2018-01-23.
  */
 
-public class GetRestaurantTask extends BaseTask< ArrayList<RestaurantVO>> {
+public class GetRestaurantTask extends TestTask< ArrayList<RestaurantVO>> {
     GetRestaurantTask(Context context) {
         super(context);
     }

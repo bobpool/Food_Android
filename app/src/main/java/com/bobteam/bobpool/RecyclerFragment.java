@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.bobteam.bobpool.introduce.IntroduceActivity;
 import com.bobteam.bobpool.list.ListProvider;
 import com.bobteam.bobpool.list.MyListAdapter;
+import com.bobteam.bobpool.vo.RestaurantVO;
 
 import java.util.ArrayList;
 
@@ -66,10 +67,20 @@ public class RecyclerFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(getActivity(), IntroduceActivity.class);
+            intent.putExtra("data", testVO() );
             //나중에 데이터 얹어서 추가로 보낼것.
 
             startActivity(intent);
         }
     };
+
+    private RestaurantVO testVO(){
+        RestaurantVO vo = new RestaurantVO();
+        vo.setName("우리집");
+        vo.setAddress("우리집");
+        vo.setTelNum("010-1010-1010");
+
+        return vo;
+    }
 
 }
