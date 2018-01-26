@@ -53,7 +53,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             super(view);
 
             name = view.findViewById(R.id.name);
-            address = view.findViewById(R.id.address);
+            address = view.findViewById(R.id.address_search);
         }
     }
 
