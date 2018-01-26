@@ -9,26 +9,35 @@
         android:text="배달 주소 설정"
         android:textSize="26sp"
         android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/address_set_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주 주소 검색"/>
+
     <TextView
+        android:id="@+id/first_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="배달 주소 설정"
-        android:textSize="22sp"
+        android:layout_marginTop="20dp"
+        android:hint="주소들어 가는 칸!"
+        android:textSize="18sp"
+        android:paddingBottom="10dp"
         android:textAlignment="center"/>
-
-    <WebView
-        android:id="@+id/address_search"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <Button
+        android:id="@+id/address_set_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="보조 주소 검색"/>
 
     <TextView
-        android:id="@+id/address_text"
+        android:id="@+id/second_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="....."
-        android:textSize="22sp"
+        android:layout_marginTop="20dp"
+        android:hint="주소들어 가는 칸!"
+        android:textSize="18sp"
         android:paddingBottom="10dp"
         android:textAlignment="center"/>
 
