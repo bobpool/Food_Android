@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bobteam.bobpool.R;
+import com.bobteam.bobpool.vo.RestaurantVO;
 
 import java.util.ArrayList;
 
@@ -15,19 +16,19 @@ import java.util.ArrayList;
  * Created by Osy on 2018-01-14.
  */
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
-    private ArrayList<ListProvider> listProvider;
+public class RestaurantRecyclerViewAdapter extends RecyclerView.Adapter<RestaurantRecyclerViewAdapter.MyViewHolder> {
+    private ArrayList<RestaurantVO> providers;
     private View.OnClickListener itemClickListener;
 
-    public MyRecyclerViewAdapter(ArrayList<ListProvider> provider , View.OnClickListener itemClickListener){
-        this.listProvider = provider;
+    public RestaurantRecyclerViewAdapter(ArrayList<RestaurantVO> provider, View.OnClickListener itemClickListener){
+        this.providers = provider;
         this.itemClickListener = itemClickListener;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from( parent.getContext() );
-        View view = inflater.inflate(R.layout.recycler_item, parent, false);
+        View view = inflater.inflate(  R.layout.recycler_item, parent, false);
         view.setOnClickListener(itemClickListener);
 
         return new MyViewHolder(view);
@@ -35,23 +36,27 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.name.setText(listProvider.get(position).getName());
-        holder.address.setText(listProvider.get(position).getAddress());
+        holder.name.setText(providers.get(position).getName());
+        holder.address.setText(providers.get(position).getAddress());
+
+        holder.view.setTag(providers.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        Log.e(this.toString(), "getItemCount: " + listProvider.size() );
-        return listProvider.size();
+        Log.e(this.toString(), "getItemCount: " + providers.size() );
+        return providers.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
+        private View view;
         private TextView name;
         private TextView address;
 
         private MyViewHolder(View view) {
             super(view);
 
+            this.view = view;
             name = view.findViewById(R.id.name);
             address = view.findViewById(R.id.address_search);
         }

@@ -3,7 +3,7 @@ package com.bobteam.bobpool.task.manager;
 import com.bobteam.bobpool.task.TaskJsonRead;
 import com.bobteam.bobpool.task.TaskResultListener;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * Created by Osy on 2018-01-25.
@@ -22,7 +22,7 @@ public abstract class BaseTaskManager<E> implements TaskManager<E> {
     }
 
     @Override
-    public JSONArray read(String urlStr) {
+    public JSONObject read(String urlStr) {
         return taskJsonRead.read(urlStr);
     }
 
