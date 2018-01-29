@@ -26,7 +26,6 @@ public class UserSettingActivity extends AppCompatActivity implements View.OnCli
     private TextView firstAddressText;
     private TextView secondAddressText;
 
-    private View searchAddressView;
     private Dialog searchAddressDialog;
     private ProgressDialog progressDialog;
 
@@ -59,7 +58,7 @@ public class UserSettingActivity extends AppCompatActivity implements View.OnCli
 
     @SuppressLint("SetJavaScriptEnabled")
     private void initWebView(){
-        searchAddressView = getLayoutInflater().inflate(R.layout.dialog_daum_address, null, false);
+        View searchAddressView = getLayoutInflater().inflate(R.layout.dialog_daum_address, null, false);
 
         WebView webView = searchAddressView.findViewById(R.id.address_search);
         webView.getSettings().setJavaScriptEnabled(true);   // JavaScript 허용
@@ -100,7 +99,6 @@ public class UserSettingActivity extends AppCompatActivity implements View.OnCli
         searchAddressDialog = new Dialog(this);
         searchAddressDialog.setContentView(searchAddressView, layoutParams);
         searchAddressDialog.show();
-
     }
 
     @Override
@@ -115,8 +113,6 @@ public class UserSettingActivity extends AppCompatActivity implements View.OnCli
         }
 
         initWebView();
-
-
     }
 
 

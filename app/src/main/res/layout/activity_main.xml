@@ -30,6 +30,7 @@
         android:layout_marginEnd="20dp"
         android:layout_below="@+id/top"
         android:background="@color/gray"/>
+
     <LinearLayout
         android:id="@+id/spinners"
         android:layout_marginTop="10dp"
@@ -47,7 +48,6 @@
             style="@style/SpinnerStyle"
             android:spinnerMode="dropdown"
             android:layout_marginRight="20dp"/>
-
 
     </LinearLayout>
 
