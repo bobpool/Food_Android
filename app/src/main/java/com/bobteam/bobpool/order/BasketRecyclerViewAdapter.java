@@ -18,6 +18,10 @@ public class BasketRecyclerViewAdapter extends RecyclerView.Adapter<BasketRecycl
     private ArrayList<BasketProvider> provider;
     private View.OnClickListener itemClickListener;
 
+    public BasketRecyclerViewAdapter(ArrayList<BasketProvider> provider){
+        this.provider = provider;
+    }
+
     public BasketRecyclerViewAdapter(ArrayList<BasketProvider> provider, View.OnClickListener itemClickListener){
         this.provider = provider;
         this.itemClickListener = itemClickListener;
@@ -28,7 +32,8 @@ public class BasketRecyclerViewAdapter extends RecyclerView.Adapter<BasketRecycl
         final LayoutInflater inflater = LayoutInflater.from( parent.getContext() );
         View view = inflater.inflate( R.layout.recycler_item_basket, parent, false);
 
-        view.setOnClickListener(itemClickListener);
+        if ( itemClickListener != null)
+            view.setOnClickListener(itemClickListener);
 
         return new MenuViewHolder(view);
     }

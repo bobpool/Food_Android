@@ -42,7 +42,6 @@ public class GetMenuTaskManager extends BaseTaskManager<ArrayList<MenuVO>> {
         try{
             JSONArray menuArray = new JSONArray( jsonObject.getString("Menu") );
 
-
             for (int i = 0 ; i < menuArray.length() ; i++){
                 JSONObject menu = menuArray.getJSONObject(i);
 
@@ -52,17 +51,6 @@ public class GetMenuTaskManager extends BaseTaskManager<ArrayList<MenuVO>> {
 
                 menuVOS.add(menuVO);
             }
-
-            /*for (int i = 0 ; i < reviewArray.length() ; i++){
-                JSONObject review = menuArray.getJSONObject(i);
-
-                ReviewVO reviewVO = new ReviewVO();
-                reviewVO.setText( review.has("review_text") ? review.getString("review_text") : "" );
-                reviewVO.setAuther( review.has("review_auther") ? review.getString("review_auther") : "" );
-
-                reviewVOS.add(reviewVO);
-            }*/
-
 
             // RestaurantVo에 추가할 것들 : 사진, 메뉴, 리뷰, 별점, 즐겨찾기 등.
 

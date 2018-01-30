@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         addressSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, UserSettingActivity.class);
+            Intent intent = new Intent(MainActivity.this, UserSettingActivity.class);
 
-                startActivity(intent);
+            startActivity(intent);
             }
         });
     }

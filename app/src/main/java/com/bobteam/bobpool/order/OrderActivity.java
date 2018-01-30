@@ -49,7 +49,8 @@ public class OrderActivity extends AppCompatActivity{
                 Intent intent = new Intent(OrderActivity.this, OrderCompleteActivity.class);
                 intent.putExtra("basketData", basketRecyclerViewAdapter.getProvider());
 
-                startActivity(intent);
+                startActivityForResult(intent,1);
+//                startActivity(intent);
             }
         });
     }
@@ -104,7 +105,7 @@ public class OrderActivity extends AppCompatActivity{
                     }
                 });
 
-                dialog.findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
+                dialog.findViewById(R.id.order_ok).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         BasketProvider basketProvider = new BasketProvider();
@@ -136,17 +137,32 @@ public class OrderActivity extends AppCompatActivity{
         basketProviders = new ArrayList<>();
 
         RecyclerView recyclerView = findViewById(R.id.basket_list);
-        basketRecyclerViewAdapter = new BasketRecyclerViewAdapter(basketProviders, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        basketRecyclerViewAdapter = new BasketRecyclerViewAdapter(basketProviders);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(basketRecyclerViewAdapter);
+    }
+
+    private OrderCompleteListener orderCompleteListener = new OrderCompleteListener() {
+        @Override
+        public void orderComplete() {
+            finish();
+        }
+    };
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1){
+            String str = data.getStringExtra("result");
+
+            if ( str.equals("complete") ){
+                finish();
+            }
+        }
     }
 }

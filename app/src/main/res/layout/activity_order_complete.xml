@@ -11,10 +11,12 @@
         android:gravity="center"
         android:text="장바구니"
         android:textSize="20sp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/basket_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +32,7 @@
             android:text="총금액 : "
             android:textSize="18sp"/>
         <TextView
+            android:id="@+id/extended_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,15 +85,20 @@
             android:text="호관"
             android:textSize="18sp"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center">
-        <Spinner
+        <EditText
             android:id="@+id/room_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="ex) 101"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,25 +106,20 @@
             android:textSize="18sp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_weight="1">
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/back"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="취소"
             android:textSize="18sp"/>
         <Button
+            android:id="@+id/order_ok"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
