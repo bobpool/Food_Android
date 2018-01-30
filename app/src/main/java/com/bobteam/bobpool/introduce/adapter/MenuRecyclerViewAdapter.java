@@ -1,4 +1,4 @@
-package com.bobteam.bobpool.introduce;
+package com.bobteam.bobpool.introduce.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,6 +36,7 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
 
     @Override
     public void onBindViewHolder(MenuViewHolder holder, int position) {
+        holder.view.setTag(position);
         holder.nameView.setText(provider.get(position).getName());
         holder.priceView.setText(provider.get(position).getPrice());
     }
@@ -52,12 +53,13 @@ public class MenuRecyclerViewAdapter extends RecyclerView.Adapter<MenuRecyclerVi
     }
 
     class MenuViewHolder extends RecyclerView.ViewHolder {
+        View view;
         TextView nameView;
         TextView priceView;
 
         public MenuViewHolder(View itemView) {
             super(itemView);
-
+            view = itemView;
             nameView = itemView.findViewById(R.id.menu_name);
             priceView = itemView.findViewById(R.id.menu_price);
         }

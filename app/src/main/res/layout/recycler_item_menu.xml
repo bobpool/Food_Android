@@ -17,5 +17,5 @@
         android:layout_height="match_parent"
         android:text="20,000원"
         android:textSize="24sp"
-        android:gravity="center"/>
+        android:gravity="end"/>
 </LinearLayout>

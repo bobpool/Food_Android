@@ -1,4 +1,4 @@
-package com.bobteam.bobpool.introduce;
+package com.bobteam.bobpool.introduce.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,8 +36,8 @@ public class ReviewRecyclerViewAdapter extends RecyclerView.Adapter<ReviewRecycl
 
     @Override
     public void onBindViewHolder(ReviewViewHolder holder, int position) {
-        holder.authorView.setText(provider.get(position).getAuther());
-        holder.contentView.setText(provider.get(position).getText());
+        holder.authorView.setText( provider.get(position).getAuther() );
+        holder.contentView.setText( provider.get(position).getText() );
     }
 
     @Override

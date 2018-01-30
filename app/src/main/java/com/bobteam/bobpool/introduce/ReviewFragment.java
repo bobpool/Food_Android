@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bobteam.bobpool.R;
+import com.bobteam.bobpool.introduce.adapter.ReviewRecyclerViewAdapter;
 import com.bobteam.bobpool.task.BaseTask;
 import com.bobteam.bobpool.task.BaseTaskJsonRead;
 import com.bobteam.bobpool.task.TaskResultListener;
