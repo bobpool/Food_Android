@@ -2,8 +2,8 @@ package com.bobteam.bobpool.task;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,8 +17,8 @@ import java.net.URLConnection;
 
 public class BaseTaskJsonRead implements TaskJsonRead {
     @Override
-    public JSONArray read(String urlStr) {
-        JSONArray responseJSON = null;
+    public JSONObject read(String urlStr) {
+        JSONObject responseJSON = null;
         String response;
 
         try{
@@ -46,10 +46,11 @@ public class BaseTaskJsonRead implements TaskJsonRead {
 
             response = new String ( byteData );
 
-            responseJSON = new JSONArray ( response );
+            responseJSON = new JSONObject ( response );
 
             byteArrayOutputStream.close ( );
             is.close ( );
+
         } catch ( IOException | JSONException e ){
             Log.e ( this.toString() , e.toString ( ) );
         }

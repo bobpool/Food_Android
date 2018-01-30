@@ -1,6 +1,6 @@
 package com.bobteam.bobpool.task.manager;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * Created by Osy on 2018-01-24.
@@ -8,7 +8,7 @@ import org.json.JSONArray;
 
 public interface TaskManager<E> {
     String setUrl(String ... params);
-    JSONArray read(String urlStr);
-    E parse(JSONArray jsonArray);
+    JSONObject read(String urlStr);
+    E parse(JSONObject jsonObject);
     void result(E result);
 }

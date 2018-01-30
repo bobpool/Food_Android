@@ -22,7 +22,7 @@ public class GlobalApplication extends Application {
     private static UserProfile userProfile;
 
     //서버주소 들어가야함.
-    private static final String ADDRESS = "";
+    private static final String ADDRESS = "http://203.253.198.125:8080/server/";
 
     private static class KakaoSDKAdapter extends KakaoAdapter {
         /**

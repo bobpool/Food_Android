@@ -31,6 +31,8 @@
         <activity android:name=".main_list.MainActivity"/>
         <activity android:name=".UserSettingActivity"/>
         <activity android:name=".introduce.IntroduceActivity"/>
+        <activity android:name=".order.OrderActivity"/>
+        <activity android:name=".OrderCompleteActivity"/>
     </application>
 
 </manifest>
